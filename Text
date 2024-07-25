@@ -1,0 +1,30 @@
+def extract_info_from_text(text_list, keywords):
+    extracted_info = {}
+    
+    for keyword in keywords:
+        extracted_info[keyword] = []
+        for text in text_list:
+            if keyword.lower() in text.lower():
+                extracted_info[keyword].append(text)
+    
+    return extracted_info
+
+# Sample text list
+text_list = [
+    "This is a sample text containing the keyword apple.",
+    "Another example with the keyword banana.",
+    "This text mentions both apple and banana.",
+    "This one doesn't contain any keywords."
+]
+
+# Keywords to search for
+keywords = ["apple", "banana"]
+
+# Extracting information
+extracted_info = extract_info_from_text(text_list, keywords)
+
+# Printing extracted information
+for keyword, info in extracted_info.items():
+    print(f"Information related to '{keyword}':")
+    for item in info:
+        print(f" - {item}")
